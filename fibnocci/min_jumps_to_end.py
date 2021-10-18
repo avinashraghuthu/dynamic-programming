@@ -44,6 +44,8 @@ def min_jumps_to_end_tabulation(arr):
 	dp[0] = 0
 	
 	for current_index in range(arr_len):
+		# for each element in arr find the min steps at each stage
+		# if arr[i] val is 3 then current range is (i+1, i+3) ---- step count is +1 wrt current index
 		start, end = current_index + 1, current_index + arr[current_index]
 		while start < arr_len and start <= end:
 			dp[start] = min(dp[start], dp[current_index] + 1)
